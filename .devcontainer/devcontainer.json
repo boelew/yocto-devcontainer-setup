@@ -1,0 +1,39 @@
+{
+    "name": "yocto-dev-container",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "postCreateCommand": "./prepare-project/install/install-poky.sh ",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "remote.downloadExtensionsLocally": true,
+                "telemetry.enableTelemetry": false,
+                "extensions.ignoreRecommendations": false,
+                "workbench.remoteIndicator.showExtensionRecommendations": false
+            },
+            "extensions": [
+                "ms-azuretools.vscode-containers",
+                "ms-python.vscode-python-envs",
+                "yocto-project.yocto-bitbake",
+                "vscodevim.vim"
+            ]
+        }
+    }
+}
+// {
+//     "name": "Example",
+//     "image": "",
+//     "runArgs": [
+//         "--env",
+//         "SSH_AUTH_SOCK=/ssh-agent"
+//     ],
+//     "postStartCommand": "",
+//     "mounts": [
+//         "type=bind,source=${env:SSH_AUTH_SOCK},target=/ssh-agent",
+//         "source=${localEnv:HOME}/.vscode/extensions,target=/root/.vscode-server/extensions,type=bind"
+//     ],
+//     "remoteEnv": {
+//         "SSH_AUTH_SOCK": "/ssh-agent"
+//     }
+// }
