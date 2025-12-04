@@ -111,60 +111,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends --fix-
     zlib1g-dev \
     zstd
 
-# apt-utils \
-# bash-completion \
-# bc \
-# build-essential \
-# ca-certificates \
-# chrpath \
-# cpio \
-# curl \
-# debianutils \
-# diffstat \
-# efitools \
-# file \
-# gcc-multilib \
-# gawk \
-# git-core \
-# git-lfs \
-# iputils-ping \
-# less \
-# libegl1-mesa \
-# libgnutls28-dev \
-# liblz4-tool \
-# libsdl1.2-dev \
-# libssl-dev \
-# locales \
-# lzop \
-# mesa-common-dev \
-# net-tools \
-# openssh-client \
-# pylint \
-# python3 \
-# python3-git \
-# python3-jinja2 \
-# python3-pexpect \
-# python3-pip \
-# python3-subunit \
-# rsync \
-# screen \
-# socat \
-# sudo \
-# tar \
-# texinfo \
-# unzip \
-# vim \
-# wget \
-# xterm \
-# xz-utils \
-# zstd
-
-# Notes
-#   git-core is a dummy package that calls git
-#   zstd provides pzstd
-#   liblz4-tool provides lz4c and lz4
-#   pylint3 is now pylint
-
 # ----------------------------------------------------------------------
 # Clean up after the installs
 RUN DEBIAN_FRONTEND=noninteractive apt clean -y --no-install-recommends \
@@ -192,12 +138,6 @@ RUN rm /bin/sh && ln -s bash /bin/sh
 #RUN curl -o /usr/local/bin/repo https://storage.googleapis.com/git-repo-downloads/repo
 #ADD https://storage.googleapis.com/git-repo-downloads/repo /usr/local/bin/
 #RUN chmod 755 /usr/local/bin/repo
-
-# 20240328 removing this fix because google finally added reference
-#          to python3 in the first line
-# 20231130 fix python version issue that came to light recently
-# ERROR: repo issue "def print(self, *args, **kwargs):"
-# RUN sed -i "1 s|python|python3|" /usr/local/bin/repo
 
 
 # ----------------------------------------------------------------------
@@ -229,59 +169,3 @@ RUN echo "${USER} ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/${USER} && \
 # Change username and work directory
 USER $USER
 WORKDIR /home/$USER
-
-
-#----------------------------------------------------------------------
-#----------------------------------------------------------------------
-#----------------------------------------------------------------------
-#----------------------------------------------------------------------
-
-
-#FROM ubuntu:24.04
-
-# Yocto dependencies
-
-#RUN apt-get update && apt-get -y upgrade && DEBIAN_FRONTEND=noninteractive apt-get install -y \
-# gawk \
-# wget \
-# git \
-# diffstat \
-# unzip \
-# texinfo \
-# gcc \
-# build-essential \
-# chrpath \
-# socat \
-# cpio \
-# python3 \
-# python3-pip \
-# python3-pexpect \
-# xz-utils \
-# debianutils \
-# iputils-ping \
-# python3-git \
-# python3-jinja2 \
-# python3-subunit \
-# zstd \
-# liblz4-tool \
-# file \
-# locales \
-# libacl1
-
-# Language support
-
-# RUN locale-gen en_US.UTF-8
-# ENV LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
-
-# Additional tools
-
-# RUN apt-get install -y \
-#     screen \
-#     tmux \
-#     vim
-
-# CMD ["/bin/bash"]
-
-# Create working directory
-# RUN mkdir -p /home/ubuntu/workdir
-# RUN chmod 755 -R /home/ubuntu/workdir

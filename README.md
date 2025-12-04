@@ -4,6 +4,7 @@
 
 In the `prepare-project` folder you find several files in which you can configure your project.
 Modify the following files:
+
 - `prepare-project/common/project-setup.sh`
 - `prepare-project/conf/conf-notes.txt`
 - `prepare-project/conf/conf-summary.txt`

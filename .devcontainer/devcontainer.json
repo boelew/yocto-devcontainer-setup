@@ -21,19 +21,3 @@
         }
     }
 }
-// {
-//     "name": "Example",
-//     "image": "",
-//     "runArgs": [
-//         "--env",
-//         "SSH_AUTH_SOCK=/ssh-agent"
-//     ],
-//     "postStartCommand": "",
-//     "mounts": [
-//         "type=bind,source=${env:SSH_AUTH_SOCK},target=/ssh-agent",
-//         "source=${localEnv:HOME}/.vscode/extensions,target=/root/.vscode-server/extensions,type=bind"
-//     ],
-//     "remoteEnv": {
-//         "SSH_AUTH_SOCK": "/ssh-agent"
-//     }
-// }

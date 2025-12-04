@@ -23,8 +23,6 @@ PROJECT_LOCATION="${CURRENT_PATH}/${PROJECT}"
 DOCKER_IMAGE_TAG="imx-yocto"
 DOCKER_WORKDIR="${PROJECT_LOCATION}"
 
-#SETUP_DIR="${ROOT_PATH}/setup"
-
 # Container
 CONF_DIR="${DOCKER_WORKDIR}/${PROJECT}/conf"
 UPSTREAM_DIR="${DOCKER_WORKDIR}/${UPSTREAM}"
@@ -32,11 +30,3 @@ YOCTO_DIR="${UPSTREAM_DIR}/poky"
 WORK_DIR="${DOCKER_WORKDIR}/${WORK}"
 
 BUILD_DIR="${DOCKER_WORKDIR}/build"
-
-# MACHINE="imx8mpevk"
-# DISTRO="fsl-imx-xwayland"
-# IMAGES="imx-image-core"
-
-# REMOTE="https://github.com/nxp-imx/imx-manifest"
-# BRANCH="imx-linux-${YOCTO_VERSION}"
-# MANIFEST=${IMX_RELEASE}".xml"
